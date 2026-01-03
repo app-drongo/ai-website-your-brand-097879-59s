@@ -2,7 +2,7 @@
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { ArrowRight, CheckCircle, Zap, Shield } from 'lucide-react';
+import { ArrowRight, CheckCircle, Zap, Shield , Settings} from 'lucide-react';
 import Image from 'next/image';
 import { useSmartNavigation } from '@/hooks/useSmartNavigation';
 
