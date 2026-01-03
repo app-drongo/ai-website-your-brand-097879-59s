@@ -2,15 +2,11 @@
 
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { Menu, X } from 'lucide-react';
-import Image from 'next/image';
+import { Menu, Square } from 'lucide-react';
 import { useState } from 'react';
 import { useSmartNavigation } from '@/hooks/useSmartNavigation';
 
 const DEFAULT_NAVIGATION = {
-  logoUrl:
-    'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=120&h=40&fit=crop&crop=center',
-  logoAlt: 'Company Logo',
   brandName: 'Brand',
   navItems: [{ label: 'Home', href: '#hero' }],
   ctaText: 'Get Started',
@@ -40,14 +36,7 @@ export default function Navigation(props: NavigationProps) {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center gap-3">
-            <Image
-              src={config.logoUrl}
-              alt={config.logoAlt}
-              width={40}
-              height={40}
-              className="rounded-lg"
-              data-editable-src="logoUrl"
-            />
+            <Square className="h-8 w-8 text-primary fill-primary" />
             <span className="text-xl font-bold text-foreground" data-editable="brandName">
               {config.brandName}
             </span>
@@ -96,14 +85,7 @@ export default function Navigation(props: NavigationProps) {
                 <div className="flex flex-col gap-6 mt-8">
                   {/* Mobile Logo */}
                   <div className="flex items-center gap-3 pb-4 border-b border-border">
-                    <Image
-                      src={config.logoUrl}
-                      alt={config.logoAlt}
-                      width={32}
-                      height={32}
-                      className="rounded-lg"
-                      data-editable-src="logoUrl"
-                    />
+                    <Square className="h-6 w-6 text-primary fill-primary" />
                     <span className="text-lg font-bold text-foreground" data-editable="brandName">
                       {config.brandName}
                     </span>

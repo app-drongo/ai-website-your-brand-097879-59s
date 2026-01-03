@@ -49,19 +49,6 @@ export default function Hero(props: HeroProps) {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-16">
           {/* Left Content */}
           <div className="order-2 lg:order-1">
-            {/* Logo */}
-            <div className="mb-8 flex justify-start">
-              <Image
-                src={config.logoUrl}
-                alt={config.logoAlt}
-                data-editable-src="logoUrl"
-                width={200}
-                height={80}
-                className="h-12 w-auto object-contain"
-                priority
-              />
-            </div>
-
             {/* Main Content */}
             <div>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 tracking-tight">
