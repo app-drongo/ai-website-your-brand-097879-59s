@@ -18,6 +18,9 @@ const DEFAULT_HERO = {
   logoUrl:
     'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=200&h=80&fit=crop&auto=format',
   logoAlt: 'Company Logo',
+  heroImageUrl:
+    'https://images.unsplash.com/photo-1551434678-e076c223a692?w=600&h=600&fit=crop&auto=format',
+  heroImageAlt: 'Hero Image',
   features: [
     { title: 'Reliable', description: 'Trusted solutions that work seamlessly' },
     { title: 'Efficient', description: 'Streamlined processes for optimal results' },
@@ -42,57 +45,76 @@ export default function Hero(props: HeroProps) {
   return (
     <section id="hero" className="bg-background text-foreground py-16 lg:py-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          {/* Logo */}
-          <div className="mb-8 flex justify-center">
-            <Image
-              src={config.logoUrl}
-              alt={config.logoAlt}
-              data-editable-src="logoUrl"
-              width={200}
-              height={80}
-              className="h-12 w-auto object-contain"
-              priority
-            />
+        {/* Split Layout Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-16">
+          {/* Left Content */}
+          <div className="order-2 lg:order-1">
+            {/* Logo */}
+            <div className="mb-8 flex justify-start">
+              <Image
+                src={config.logoUrl}
+                alt={config.logoAlt}
+                data-editable-src="logoUrl"
+                width={200}
+                height={80}
+                className="h-12 w-auto object-contain"
+                priority
+              />
+            </div>
+
+            {/* Main Content */}
+            <div>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 tracking-tight">
+                <span data-editable="title">{config.title}</span>
+              </h1>
+
+              <p className="text-xl sm:text-2xl text-muted-foreground mb-4 font-medium">
+                <span data-editable="subtitle">{config.subtitle}</span>
+              </p>
+
+              <p className="text-lg text-muted-foreground mb-10 leading-relaxed">
+                <span data-editable="description">{config.description}</span>
+              </p>
+
+              {/* CTA Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button
+                  size="lg"
+                  onClick={handlePrimaryClick}
+                  data-editable-href="ctaHref"
+                  data-href={config.ctaHref}
+                  className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-3 text-lg font-semibold"
+                >
+                  <span data-editable="ctaText">{config.ctaText}</span>
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+
+                <Button
+                  variant="outline"
+                  size="lg"
+                  onClick={handleSecondaryClick}
+                  data-editable-href="secondaryCtaHref"
+                  data-href={config.secondaryCtaHref}
+                  className="border-border text-foreground hover:bg-accent hover:text-accent-foreground px-8 py-3 text-lg font-semibold"
+                >
+                  <span data-editable="secondaryCtaText">{config.secondaryCtaText}</span>
+                </Button>
+              </div>
+            </div>
           </div>
 
-          {/* Main Content */}
-          <div className="max-w-4xl mx-auto">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 tracking-tight">
-              <span data-editable="title">{config.title}</span>
-            </h1>
-
-            <p className="text-xl sm:text-2xl text-muted-foreground mb-4 font-medium">
-              <span data-editable="subtitle">{config.subtitle}</span>
-            </p>
-
-            <p className="text-lg text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed">
-              <span data-editable="description">{config.description}</span>
-            </p>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-              <Button
-                size="lg"
-                onClick={handlePrimaryClick}
-                data-editable-href="ctaHref"
-                data-href={config.ctaHref}
-                className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-3 text-lg font-semibold"
-              >
-                <span data-editable="ctaText">{config.ctaText}</span>
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-
-              <Button
-                variant="outline"
-                size="lg"
-                onClick={handleSecondaryClick}
-                data-editable-href="secondaryCtaHref"
-                data-href={config.secondaryCtaHref}
-                className="border-border text-foreground hover:bg-accent hover:text-accent-foreground px-8 py-3 text-lg font-semibold"
-              >
-                <span data-editable="secondaryCtaText">{config.secondaryCtaText}</span>
-              </Button>
+          {/* Right Image */}
+          <div className="order-1 lg:order-2">
+            <div className="relative">
+              <Image
+                src={config.heroImageUrl}
+                alt={config.heroImageAlt}
+                data-editable-src="heroImageUrl"
+                width={600}
+                height={600}
+                className="w-full h-auto object-cover rounded-lg shadow-lg"
+                priority
+              />
             </div>
           </div>
         </div>
